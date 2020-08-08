@@ -1,0 +1,52 @@
+<?php
+
+use App\Category;
+use App\Http\Resources\CategoriesResource;
+use Illuminate\Routing\RouteGroup;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+
+
+Route::get('/', function () {
+    return view('welcome');
+});
+Auth::routes(['verify' => true]);
+// Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::middleware(['auth'])->group(
+    function () {
+
+        Route::get('/category', 'CategoryController@index')->name('categories.index');
+        Route::get('/category/{id}', 'CategoryController@show');
+        Route::post('/category/store','CategoryController@store')->name('category.store');
+    
+        Route::get('/comment', 'CommentController@index')->name('comments.index');;
+        Route::get('/comment/{id}', 'CommentController@show');
+
+    
+        Route::get('/tag', 'TagController@index')->name('tags.index');;
+        Route::get('/tag/{id}', 'TagController@show');
+        Route::post('/tag/store','TagController@store')->name('tag.store');
+
+        Route::get('post-index','PostController@index')->name('posts.index');
+        Route::post('post-store','PostController@store')->name('posts.store');
+        Route::get('post/show/{id}','PostController@show')->name('post.show');
+
+        Route::get('/users-index','UserController@index')->name('users.index');
+    }
+);
