@@ -17,12 +17,12 @@ class PostResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'post_id' => $this->id,
+            "post_id" => (string) $this->id,
             'post_title'=>$this->title,
             'post_content' => $this->content,
             'post_type' => $this->post_type,
             'post_data' => $this->meta_data,
-            'updated_at' =>Carbon::parse( $this->updated_at)->format('d/m/Y'),
+            'updated_at' =>Carbon::parse( $this->updated_at)->format('d:m:Y'),
             'author'=> new UserResource($this->author),
             'comments'=>   CommentResource::collection($this->comments),
             'category'=> new CategoryResource($this->category),
