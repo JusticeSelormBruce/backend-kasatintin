@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class PostResource extends JsonResource
@@ -17,17 +18,16 @@ class PostResource extends JsonResource
     {
         return [
             'post_id' => $this->id,
+            'post_title'=>$this->title,
             'post_content' => $this->content,
             'post_type' => $this->post_type,
-            'author_id' => $this->author_id,
-            'categories_id' => $this->categories_id,
             'post_data' => $this->meta_data,
-            'updated_at' => $this->updated_at,
+            'updated_at' =>Carbon::parse( $this->updated_at)->format('d/m/Y'),
             'author'=> new UserResource($this->author),
+            'comments'=>   CommentResource::collection($this->comments),
             'category'=> new CategoryResource($this->category),
             'images'=>  ImageResource::collection($this->images),
             'videos'=>  VideoResource::collection($this->videos),
-            'comments'=>  CommentResource::collection($this->comments),
             'tags'=>  TagResource::collection($this->tags),
 
         ];

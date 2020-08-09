@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class VideoResource extends JsonResource
@@ -18,8 +19,7 @@ class VideoResource extends JsonResource
             'video_id' => $this->id,
             'video_title' => $this->title,
             'video_url' => $this->url,
-            'video_post_id' => $this->post_id,
-            'updated_at' => $this->updated_at,
+            'updated_at' => Carbon::parse( $this->updated_at)->format('d/m/Y'),
 
         ];
     }
