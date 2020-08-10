@@ -4,8 +4,11 @@ namespace App\Providers;
 
 use App\Category;
 use App\Observers\UserObserver;
+use App\Post;
 use App\User;
 use Illuminate\Support\ServiceProvider;
+
+use function GuzzleHttp\Promise\all;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,7 +32,8 @@ class AppServiceProvider extends ServiceProvider
         User::observe(UserObserver::class);
         view()->composer('*', function ($view) {
             $categories = Category::all();
-            $view->with(compact('categories'));
+            $latest_post =Post::with(['images','videos'])->take(15)->get()->all();
+            $view->with(compact('categories','latest_post'));
         });
     }
 }

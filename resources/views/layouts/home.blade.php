@@ -20,6 +20,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
+        body,html{
+            background-color: whitesmoke!important;
+        }
         .icon {
             width: 15px !important;
             height: 10px!important;
@@ -51,7 +54,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto text-capitalize">
+                    <ul class="navbar-nav ml-auto text-capitalize bg-light">
                         <!-- Authentication Links -->
 
                         <li class="nav-item">
