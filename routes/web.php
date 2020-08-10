@@ -42,7 +42,7 @@ Route::get('post_show/{id}', function ($id) {
     return view('post', compact('post'));
 });
 Route::post('/search', function (Request $request) {
-    $post_main =  Post::where('title', 'LIKE', '%' . $request->search . '%');
+    $post_main =  Post::where('title', 'LIKE', '%' . $request->search . '%')->where('content', 'LIKE', '%' . $request->search . '%');
     $post = $post_main->paginate();
     $post->withPath('next/');
     return view('search', compact('post', 'post_main'));
@@ -52,7 +52,8 @@ Route::get('/next', function (Request $request) {
     $post = $post_main->paginate();
     return view('search_next', compact('post', 'post_main'));
 });
-Route::middleware(['auth','admin'])->group(
+Route::post('/post_comment', 'CommentController@store')->middleware('auth');
+Route::middleware(['auth', 'admin'])->group(
     function () {
 
         Route::get('/category', 'CategoryController@index')->name('categories.index');
@@ -61,7 +62,7 @@ Route::middleware(['auth','admin'])->group(
 
         Route::get('/comment', 'CommentController@index')->name('comments.index');;
         Route::get('/comment/{id}', 'CommentController@show');
-        Route::post('/post_comment','CommentController@store');
+     
 
 
         Route::get('/tag', 'TagController@index')->name('tags.index');;
