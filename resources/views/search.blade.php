@@ -10,10 +10,10 @@
 
 @section('content')
 <div class="container">
-<h5>  Related Posts  in <span class="badge" style="background-color: {{$category->color}}">{{$category->title}}</span></h5>
+<h5>  search result<span class="badge" >{{$post_main->count()}}</span></h5>
     <hr>
     <div class="row">
-    @foreach ($categoryPosts as $item)
+    @foreach ($post as $item)
     <a href="/post_show/{{$item->id}}">
         <div class="col-lg-3 col-md-6  col-sm-12">
             <div class="card mb-3 h-25 bg-dark">
@@ -57,7 +57,7 @@
     </a>
     @endforeach
     </div>
-    {{$categoryPosts->links()}}
+    {{$post->links()}}
 </div>
     
 

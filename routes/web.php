@@ -5,6 +5,8 @@ use App\Http\Resources\CategoriesResource;
 use App\Post;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use function GuzzleHttp\Promise\all;
@@ -30,14 +32,25 @@ Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/category/{id}/posts', function ($id) {
-    $categoryPosts = Post::with(['comments', 'images', 'videos', 'tags', 'author'])->where('categories_id', $id)->paginate();
+    $categoryPosts = Post::with(['comments', 'images', 'videos', 'tags', 'author'])->where('categories_id', $id);
     $category = Category::find($id);
     return view('category_posts', compact('categoryPosts', 'category'));
 });
 
-Route::get('post_show/{id}',function($id){
+Route::get('post_show/{id}', function ($id) {
     $post =  Post::findOrFail($id);
     return view('post', compact('post'));
+});
+Route::post('/search', function (Request $request) {
+    $post_main =  Post::with(['comments', 'images', 'videos', 'tags', 'author'])->where('title', 'LIKE', '%' . $request->search . '%')->orWhere('content', 'LIKE', '%' . $request->search . '%');
+    $post = $post_main->paginate();
+    $post->withPath('next/');
+    return view('search', compact('post','post_main'));
+});
+Route::get('/next',function(Request $request){
+    $post_main =  Post::with(['comments', 'images', 'videos', 'tags', 'author'])->where('title', 'LIKE', '%' . $request->search . '%');
+    $post = $post_main->paginate();
+    return view('search_next', compact('post','post_main'));
 });
 Route::middleware(['auth'])->group(
     function () {

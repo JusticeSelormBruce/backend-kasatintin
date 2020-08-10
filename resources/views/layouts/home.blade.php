@@ -20,23 +20,26 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
-        body,html{
-            background-color: whitesmoke!important;
+        body,
+        html {
+            background-color: whitesmoke !important;
         }
+
         .icon {
             width: 15px !important;
-            height: 10px!important;
+            height: 10px !important;
         }
-        hr{
+
+        hr {
             margin: 0.05rem
         }
 
     </style>
 </head>
 
-<body>
+<body class="bg-dark text-light">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm shadow-lg" style="height: 50px!important">
+        <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm shadow-lg" style="height: 50px!important">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('logo/Kasatintin2.jpg') }}" alt="" class="img-thumbnail" width="100">
@@ -54,11 +57,18 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto text-capitalize bg-light">
+                    <ul class="navbar-nav ml-auto text-capitalize bg-dark text-light">
                         <!-- Authentication Links -->
-
+                       <li  class="nav-item pt-2 mx-2">
+                        <form class="form-inline input-group-sm" method="POST" action="/search">
+                            @csrf
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search" required
+                                aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0 btn-sm" type="submit">Search</button>
+                        </form>
+                       </li>
                         <li class="nav-item">
-                            <a class="dropdown-item" href="{{ route('login') }}">
+                            <a class="dropdown-item text-light" href="{{ route('login') }}">
                                 {{ __('Login') }}
                             </a>
                             <hr>
@@ -80,6 +90,7 @@
         </main>
     </div>
     <script src="{{ asset('js/app.js') }}" defer></script>
+ 
 </body>
 
 </html>

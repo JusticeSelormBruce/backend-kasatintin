@@ -1,10 +1,10 @@
-<h5> Latest News <span class="badge badge-primary">{{ sizeof($latest_post) }}</span></h5>
+<h5 class="bg-danger"> Latest News <span class="badge badge-primary">{{ sizeof($latest_post) }}</span></h5>
 <hr>
 <div class="row">
     @foreach ($latest_post as $item)
-
+    <a href="/post_show/{{$item->id}}">
         <div class="col-lg-3 col-md-4 col-sm-12">
-            <div class="card mb-3 h-25">
+            <div class="card mb-3 h-25 bg-dark">
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         @for ($i = 0; $i < sizeof($item->images); $i++)
@@ -48,6 +48,6 @@
                 </div>
             </div>
         </div>
-
+</a>
     @endforeach
 </div>
