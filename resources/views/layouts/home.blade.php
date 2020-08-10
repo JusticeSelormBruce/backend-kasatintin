@@ -59,18 +59,31 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto text-capitalize bg-dark text-light">
                         <!-- Authentication Links -->
-                       <li  class="nav-item pt-2 mx-2">
-                        <form class="form-inline input-group-sm" method="POST" action="/search">
-                            @csrf
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search" required
-                                aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0 btn-sm" type="submit">Search</button>
-                        </form>
-                       </li>
+                        <li class="nav-item pt-2 mx-2">
+                            <form class="form-inline input-group-sm" method="POST" action="/search">
+                                @csrf
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search"
+                                    required aria-label="Search">
+                                <button class="btn btn-outline-success my-2 my-sm-0 btn-sm"
+                                    type="submit">Search</button>
+                            </form>
+                        </li>
                         <li class="nav-item">
-                            <a class="dropdown-item text-light" href="{{ route('login') }}">
-                                {{ __('Login') }}
-                            </a>
+                            @guest
+                                <a class="dropdown-item text-light" href="{{ route('login') }}">
+                                    {{ __('Login') }}
+                                </a>
+                                @else
+                                <a class="dropdown-item text-light" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+        
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                            @endguest
+                         
                             <hr>
                             <a href="https://web.facebook.com/Kasatintincom-329606714086874/"><img
                                     src="{{ asset('icons/facebook.png') }}" alt="" class="icon ml-2"></a>
@@ -90,7 +103,7 @@
         </main>
     </div>
     <script src="{{ asset('js/app.js') }}" defer></script>
- 
+
 </body>
 
 </html>

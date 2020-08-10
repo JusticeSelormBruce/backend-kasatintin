@@ -15,7 +15,7 @@
 
 </style>
 <ul class="list-group list-group-horizontal-sm cat_hide">
-    <li class="list-group-item py-1" aria-disabled="true">News Categories</li>
+    <li class="list-group-item py-1 text-dark" aria-disabled="true">News Categories</li>
     @foreach ($categories as $item)
         <li class="list-group-item py-0" style="background-color: {{ $item->color }}"><a href="category/{{$item->id}}/posts"
                 class="text-light">{{ $item->title }}</a></li>

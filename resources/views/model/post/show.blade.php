@@ -24,6 +24,7 @@
                     <p class="card-text">{{ $post->content }}</p>
                 </div>
             </div>
+            @include('model.comment.form')
             @foreach ($post->comments as $item)
 
                 <div class="card">

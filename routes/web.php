@@ -32,7 +32,7 @@ Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/category/{id}/posts', function ($id) {
-    $categoryPosts = Post::with(['comments', 'images', 'videos', 'tags', 'author'])->where('categories_id', $id);
+    $categoryPosts = Post::with(['comments', 'images', 'videos', 'tags', 'author'])->where('categories_id', $id)->paginate();
     $category = Category::find($id);
     return view('category_posts', compact('categoryPosts', 'category'));
 });
@@ -42,15 +42,15 @@ Route::get('post_show/{id}', function ($id) {
     return view('post', compact('post'));
 });
 Route::post('/search', function (Request $request) {
-    $post_main =  Post::with(['comments', 'images', 'videos', 'tags', 'author'])->where('title', 'LIKE', '%' . $request->search . '%')->orWhere('content', 'LIKE', '%' . $request->search . '%');
+    $post_main =  Post::where('title', 'LIKE', '%' . $request->search . '%');
     $post = $post_main->paginate();
     $post->withPath('next/');
-    return view('search', compact('post','post_main'));
+    return view('search', compact('post', 'post_main'));
 });
-Route::get('/next',function(Request $request){
-    $post_main =  Post::with(['comments', 'images', 'videos', 'tags', 'author'])->where('title', 'LIKE', '%' . $request->search . '%');
+Route::get('/next', function (Request $request) {
+    $post_main =    Post::where('title', 'LIKE', '%' . $request->search . '%');
     $post = $post_main->paginate();
-    return view('search_next', compact('post','post_main'));
+    return view('search_next', compact('post', 'post_main'));
 });
 Route::middleware(['auth'])->group(
     function () {
@@ -61,6 +61,7 @@ Route::middleware(['auth'])->group(
 
         Route::get('/comment', 'CommentController@index')->name('comments.index');;
         Route::get('/comment/{id}', 'CommentController@show');
+        Route::post('/post_comment','CommentController@store');
 
 
         Route::get('/tag', 'TagController@index')->name('tags.index');;

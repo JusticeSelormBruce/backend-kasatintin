@@ -1,3 +1,4 @@
+
 <h5 class="bg-danger"> Latest News <span class="badge badge-primary">{{ sizeof($latest_post) }}</span></h5>
 <hr>
 <div class="row">
