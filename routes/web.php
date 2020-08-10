@@ -52,7 +52,7 @@ Route::get('/next', function (Request $request) {
     $post = $post_main->paginate();
     return view('search_next', compact('post', 'post_main'));
 });
-Route::middleware(['auth'])->group(
+Route::middleware(['auth','admin'])->group(
     function () {
 
         Route::get('/category', 'CategoryController@index')->name('categories.index');
