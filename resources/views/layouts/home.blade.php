@@ -26,23 +26,64 @@
         }
 
         .icon {
-            width: 15px !important;
-            height: 10px !important;
+            width: 25px !important;
+            height: 15px !important;
         }
 
         hr {
             margin: 0.05rem
         }
 
+        @media(min-width:720px) {
+
+
+            .design {
+                margin-left: 8vw !important;
+                margin-right: 8vw !important;
+            }
+
+            .design-nav {
+                margin-left: 5vw !important;
+                margin-right: 5vw !important;
+            }
+
+            .cat_show {
+                display: none;
+            }
+
+        }
+
+        @media(max-width:720px) {
+            .cat_hide {
+                display: none;
+            }
+
+            body,
+            html {
+                /* font-family: sans-serif; */
+                font-size: small !important;
+            }
+
+            .hide {
+                display: none;
+            }
+
+            .show-sm {
+                display: none;
+            }
+        }
+
+        @media(min-width:720px) {}
+
     </style>
 </head>
 
 <body class="bg-dark text-light">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm shadow-lg" style="height: 50px!important">
-            <div class="container">
+        <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm shadow-lg" style="height: 60px!important">
+            <div class=" container-fluid design-nav">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('logo/Kasatintin2.jpg') }}" alt="" class="img-thumbnail" width="100">
+                    <img src="{{ asset('logo/Kasatintin2.jpg') }}" alt="" class="img-thumbnail"  width="120">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -57,7 +98,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto text-capitalize bg-dark text-light">
+                    <ul class="navbar-nav ml-auto text-capitalize bg-dark text-light ">
                         <!-- Authentication Links -->
                         <li class="nav-item pt-2 mx-2">
                             <form class="form-inline input-group-sm" method="POST" action="/search">
@@ -68,22 +109,22 @@
                                     type="submit">Search</button>
                             </form>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item hide">
                             @guest
                                 <a class="dropdown-item text-light" href="{{ route('login') }}">
                                     {{ __('Login') }}
                                 </a>
-                                @else
+                            @else
                                 <a class="dropdown-item text-light" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-        
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
+                                    document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
                             @endguest
-                         
+
                             <hr>
                             <a href="https://web.facebook.com/Kasatintincom-329606714086874/"><img
                                     src="{{ asset('icons/facebook.png') }}" alt="" class="icon ml-2"></a>
@@ -97,8 +138,10 @@
                 </div>
             </div>
         </nav>
-
-        <main class="pt-1">
+<div class="py-3">
+    @include('categories')
+</div>
+        <main class="pt-1  design">
             @yield('content')
         </main>
     </div>

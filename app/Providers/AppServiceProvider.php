@@ -4,8 +4,11 @@ namespace App\Providers;
 
 use App\Category;
 use App\Observers\UserObserver;
+use App\Poll;
 use App\Post;
+use App\Result;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Support\ServiceProvider;
 
 use function GuzzleHttp\Promise\all;
@@ -31,9 +34,13 @@ class AppServiceProvider extends ServiceProvider
     {
         User::observe(UserObserver::class);
         view()->composer('*', function ($view) {
+            $year = Carbon::now()->format('Y');
             $categories = Category::all();
-            $latest_post =Post::with(['images','videos'])->take(15)->get()->all();
-            $view->with(compact('categories','latest_post'));
+            $latest_post = Post::with(['images', 'videos'])->take(15)->get()->all();
+            $polls  = Poll::OrderByDesc('id')->get()->toArray();
+            $polls = $polls[0];
+            $results = Result::where('poll_id', $polls['id'])->get();
+            $view->with(compact('categories', 'latest_post', 'year', 'polls', 'results'));
         });
     }
 }

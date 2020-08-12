@@ -43,7 +43,7 @@
                    
                   
                     <div class="card-footer b">
-                        <span class="card-text">{{ $item->content }}</span>
+                        <span class="card-text" style="text-align: justify !important">{{ $item->content }}</span>
                     </div>
                 </div>
 

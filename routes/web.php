@@ -25,12 +25,13 @@ use function GuzzleHttp\Promise\all;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    $new_post = Post::with(['images','videos'])->take(1)->get()->all();
+    return view('welcome',compact('new_post'));
 });
 Auth::routes(['verify' => true]);
 // Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/category/{id}/posts', function ($id) {
     $categoryPosts = Post::with(['comments', 'images', 'videos', 'tags', 'author'])->where('categories_id', $id)->paginate();
     $category = Category::find($id);
@@ -42,7 +43,7 @@ Route::get('post_show/{id}', function ($id) {
     return view('post', compact('post'));
 });
 Route::post('/search', function (Request $request) {
-    $post_main =  Post::where('title', 'LIKE', '%' . $request->search . '%')->where('content', 'LIKE', '%' . $request->search . '%');
+    $post_main =  Post::where('title', 'LIKE', '%' . $request->search . '%')->orWhere('content', 'LIKE', '%' . $request->search . '%');
     $post = $post_main->paginate();
     $post->withPath('next/');
     return view('search', compact('post', 'post_main'));
@@ -53,9 +54,11 @@ Route::get('/next', function (Request $request) {
     return view('search_next', compact('post', 'post_main'));
 });
 Route::post('/post_comment', 'CommentController@store')->middleware('auth');
+Route::post('/vote','PollsController@vote');
 Route::middleware(['auth', 'admin'])->group(
     function () {
 
+        Route::get('/home', 'HomeController@index')->name('home');
         Route::get('/category', 'CategoryController@index')->name('categories.index');
         Route::get('/category/{id}', 'CategoryController@show');
         Route::post('/category/store', 'CategoryController@store')->name('category.store');
@@ -74,5 +77,8 @@ Route::middleware(['auth', 'admin'])->group(
         Route::get('post/show/{id}', 'PostController@show')->name('post.show');
 
         Route::get('/users-index', 'UserController@index')->name('users.index');
+        Route::get('polls-index','PollsController@index')->name('polls');
+        Route::post('store-poll','PollsController@store');
+ 
     }
 );

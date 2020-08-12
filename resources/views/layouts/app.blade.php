@@ -21,7 +21,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body>
+<body class="bg-dark">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -60,22 +60,9 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('categories.index') }}">
-                                        {{ __('Categories') }}
+                                    <a class="dropdown-item " href="{{ route('polls') }}">
+                                        {{ __('Polls') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('comments.index') }}">
-                                        {{ __('Comments') }}
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('posts.index') }}">
-                                        {{ __('Posts') }}
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('tags.index') }}">
-                                        {{ __('Tags') }}
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('users.index') }}">
-                                        {{ __('Users') }}
-                                    </a>
-
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -93,7 +80,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4 bg-dark">
             @yield('content')
         </main>
     </div>
