@@ -1,4 +1,4 @@
-<h1>TALK TO US</h1>
+<h3>Advertise with us</h3>
 <form action="/contact" method="POST">
 @csrf
 

@@ -16,7 +16,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <script data-ad-client="ca-pub-5683158631323968" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
@@ -83,7 +83,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm shadow-lg" style="height: 60px!important">
             <div class=" container-fluid design-nav">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('logo/Kasatintin2.jpg') }}" alt="" class="img-thumbnail"  width="120">
+                    <img src="{{ asset('logo/Kasatintin2.jpg') }}" alt="" class=""  width="120">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -94,7 +94,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <script data-ad-client="ca-pub-5683158631323968" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -141,10 +141,13 @@
 
         <main class="pt-1  design">
             @yield('content')
+            <script data-ad-client="ca-pub-5683158631323968" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
         </main>
     </div>
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <script data-ad-client="ca-pub-5683158631323968" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+   
 </body>
 
 </html>
