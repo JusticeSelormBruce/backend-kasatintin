@@ -83,7 +83,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm shadow-lg" style="height: 60px!important">
             <div class=" container-fluid design-nav">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('logo/Kasatintin2.jpg') }}" alt="" class=""  width="120">
+                    <img src="{{ asset('logo/Kasatintin2.jpg') }}" alt="" class="rounded"  width="120">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -140,6 +140,7 @@
         </nav>
 
         <main class="pt-1  design">
+           <div class="row">
             @yield('content')
             <script data-ad-client="ca-pub-5683158631323968" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 

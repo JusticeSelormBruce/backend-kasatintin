@@ -10,7 +10,13 @@
       
     </style>
 <div class="jumbotron  pt-2 bg-dark">
-    <h5 class="text-danger mx-2">   <span class="badge badge-danger">New</span></h5>
+   <div class="row">
+    <div class="text-danger mx-2 text-uppercase"> <span class="badge badge-primary  text-uppercase">@include('write')</span></div>
+
+    <h5 class="text-danger mx-2">   <span class="badge badge-danger">New</span></h5><span class="ml-5">
+     
+    </span>
+   </div>
     <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-12 pt-3 pl-2">
             <aside class="pt-4">
