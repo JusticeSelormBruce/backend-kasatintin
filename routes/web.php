@@ -1,8 +1,10 @@
 <?php
 
 use App\Category;
+use App\Contact;
 use App\Http\Resources\CategoriesResource;
 use App\Post;
+use App\Sbscription;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -25,8 +27,8 @@ use function GuzzleHttp\Promise\all;
 
 
 Route::get('/', function () {
-    $new_post = Post::with(['images','videos'])->take(1)->get()->all();
-    return view('welcome',compact('new_post'));
+    $new_post = Post::with(['images', 'videos'])->take(1)->get()->all();
+    return view('welcome', compact('new_post'));
 });
 Auth::routes(['verify' => true]);
 // Auth::routes();
@@ -54,7 +56,20 @@ Route::get('/next', function (Request $request) {
     return view('search_next', compact('post', 'post_main'));
 });
 Route::post('/post_comment', 'CommentController@store')->middleware('auth');
-Route::post('/vote','PollsController@vote');
+Route::post('/vote', 'PollsController@vote');
+Route::post('subscribe', function () {
+    $email = request()->validate(
+        [
+            'email' => "required|string|email"
+        ]
+    );
+    Sbscription::create($email);
+    return back()->with('msg', 'Subscription was successful, Thank you!!');
+});
+Route::post('contact', function (Request $request) {
+    Contact::create($request->all());
+    return back()->with('msg', 'Message Submited  successfully, Thank you!!');
+});
 Route::middleware(['auth', 'admin'])->group(
     function () {
 
@@ -65,7 +80,7 @@ Route::middleware(['auth', 'admin'])->group(
 
         Route::get('/comment', 'CommentController@index')->name('comments.index');;
         Route::get('/comment/{id}', 'CommentController@show');
-     
+
 
 
         Route::get('/tag', 'TagController@index')->name('tags.index');;
@@ -77,8 +92,7 @@ Route::middleware(['auth', 'admin'])->group(
         Route::get('post/show/{id}', 'PostController@show')->name('post.show');
 
         Route::get('/users-index', 'UserController@index')->name('users.index');
-        Route::get('polls-index','PollsController@index')->name('polls');
-        Route::post('store-poll','PollsController@store');
- 
+        Route::get('polls-index', 'PollsController@index')->name('polls');
+        Route::post('store-poll', 'PollsController@store');
     }
 );

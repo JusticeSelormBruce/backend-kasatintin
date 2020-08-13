@@ -13,7 +13,7 @@
 <h5>  search result<span class="badge" >{{$post_main->count()}}</span></h5>
     <hr>
     <div class="row">
-    @foreach ($post as $item)
+    @foreach ($_post as $item)
     <a href="/post_show/{{$item->id}}">
         <div class="col-lg-3 col-md-6  col-sm-12">
             <div class="card mb-3 h-25 bg-dark">

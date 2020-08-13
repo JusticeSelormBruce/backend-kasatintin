@@ -60,7 +60,7 @@
             @include('shared.alert')
             <form action="/vote" method="POST">
                 @csrf
-                <input type="hidden" value="{{$polls['id']}}" name="poll_id">
+                <input type="hidden" value="{{ $polls['id'] }}" name="poll_id">
                 <div class="card-body">
                     <h5 class="card-title h3">{{ $polls['title'] }}</h5>
                     <hr>
@@ -69,36 +69,55 @@
                     <hr>
                     <?php $options = explode(',', $polls['selection']); ?>
                     @foreach ($options as $item)
-                       <div class="row ml-2">
-                        <input type="radio" value="{{$item}}" name="choice" required> <span class="mx-2 h5 text-primary">{{$item}}</span>
-                       </div>
+                        <div class="row ml-2">
+                            <input type="radio" value="{{ $item }}" name="choice" required> <span
+                                class="mx-2 h5 text-primary">{{ $item }}</span>
+                        </div>
                     @endforeach
                     <div class="row">
                         <div class="mx-auto"><button class="btn btn-primary btn-sm">Submit</button>
                             <span class="mx-2">
-                               
-                                    <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                     Results
-                                    </a>
-                              
-                                 
-                            </span></div> 
+
+                                <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#collapseExample"
+                                    role="button" aria-expanded="false" aria-controls="collapseExample">
+                                    Results
+                                </a>
+
+
+                            </span></div>
                     </div>
                 </div>
             </form>
             <div class="collapse" id="collapseExample">
                 <div class="card card-body bg-dark w-100">
                     @foreach ($results->groupBy('choice') as $item)
-                    <hr>
+                        <hr>
                         <span class="card-footer">
-                            <h5 class="mx-2"> {{$item[0]['choice']}}<span class="badge badge-primary mx-2">   {{$item->count()}}</span></h5>
+                            <h5 class="mx-2"> {{ $item[0]['choice'] }}<span class="badge badge-primary mx-2">
+                                    {{ $item->count() }}</span></h5>
 
-                         
+
                         </span>
                     @endforeach
                 </div>
-              </div>
+            </div>
         </div>
         <div class="pt-5"> @include('youtube')</div>
+        <hr>
+        <div class="pt-5 pb-3">
+            <span>Subscribe to our newletter</span>
+            <form class=" input-group-sm" method="POST" action="/subscribe">
+                @csrf
+                <div>
+                    <input class="form-control mr-sm-2 w-100 pb-2" type="email" placeholder="eg. ewave80@gmail.com"
+                        name="email" required>
+                    <span class="text-danger"> {{ $errors->first('email') }}</span>
+                </div>
+                <hr>
+                <button class="btn btn-outline-success my-2 my-sm-0 btn-sm" type="submit">Subscribe</button>
+            </form>
+        </div>
+        <hr>
+        @include('contact')
     </div>
 </div>

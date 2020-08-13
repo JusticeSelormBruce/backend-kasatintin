@@ -3,10 +3,12 @@
 namespace App\Providers;
 
 use App\Category;
+use App\Contact;
 use App\Observers\UserObserver;
 use App\Poll;
 use App\Post;
 use App\Result;
+use App\Sbscription;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\ServiceProvider;
@@ -36,11 +38,14 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('*', function ($view) {
             $year = Carbon::now()->format('Y');
             $categories = Category::all();
-            $latest_post = Post::with(['images', 'videos'])->take(15)->get()->all();
+            $latest_post = Post::with(['images', 'videos'])->take(9)->get()->all();
             $polls  = Poll::OrderByDesc('id')->get()->toArray();
             $polls = $polls[0];
             $results = Result::where('poll_id', $polls['id'])->get();
-            $view->with(compact('categories', 'latest_post', 'year', 'polls', 'results'));
+            $subscribers = Sbscription::count();
+            $emails =Contact::orderByDesc('id')->get();
+            $recomendation = Post::all()->random(3);
+            $view->with(compact('categories', 'latest_post', 'year', 'polls', 'results','subscribers','emails','recomendation'));
         });
     }
 }

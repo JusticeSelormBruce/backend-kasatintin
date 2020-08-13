@@ -138,9 +138,7 @@
                 </div>
             </div>
         </nav>
-<div class="py-3">
-    @include('categories')
-</div>
+
         <main class="pt-1  design">
             @yield('content')
         </main>

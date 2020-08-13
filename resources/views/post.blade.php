@@ -8,7 +8,7 @@
 </style>
 @extends('layouts.home')
 @section('content')
-   <div class="container">
+   <div class="container-fluid design">
     <div class=" bg-dark">
         <div class=" bg-dark pt-1 mx-sm-0 px-sm-0">
             <div class="card-body bg-dark">
