@@ -1,7 +1,9 @@
 <style>
 
 @media(min-width: 720px){
-  
+  .img-carousel{
+      height:50vh!important
+  }
 
 }
   

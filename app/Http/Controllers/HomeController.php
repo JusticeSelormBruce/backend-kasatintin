@@ -34,9 +34,6 @@ class HomeController extends Controller
         $users = User::count();
         $tags = Tag::count();
         // $polls = Poll::count();
-      
-        
-        return view('home',compact('post','categorie','users','tags'));
-     
+        return view('home', compact('post', 'categorie', 'users', 'tags'));
     }
 }

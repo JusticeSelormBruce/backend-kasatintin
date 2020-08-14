@@ -99,8 +99,13 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto text-capitalize bg-dark text-light ">
+                        <li class="pt-2">
+                            <span class="badge badge-primary  text-uppercase">@include('write')</span>
+                        </li>
                         <!-- Authentication Links -->
                         <li class="nav-item pt-2 mx-2">
+
+
                             <form class="form-inline input-group-sm" method="POST" action="/search">
                                 @csrf
                                 <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search"
@@ -148,7 +153,7 @@
     </div>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script data-ad-client="ca-pub-5683158631323968" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-   
+
 </body>
 
 </html>

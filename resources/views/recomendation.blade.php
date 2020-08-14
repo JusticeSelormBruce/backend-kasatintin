@@ -14,12 +14,12 @@
                         @if ($i == 0)
                             <div class="carousel-item active">
                                 <img src="{{ $item->images[$i]->url }}"
-                                    class="d-block w-100 img-carousel img-thumbnail" alt="attachment">
+                                    class="d-block w-100 img-carousel1 img-thumbnail" alt="attachment">
                             </div>
                         @else
                             <div class="carousel-item ">
                                 <img src="{{ $item->images[$i]->url }}"
-                                    class="d-block w-100 img-carousel img-thumbnail" alt="attachment">
+                                    class="d-block w-100 img-carousel1 img-thumbnail" alt="attachment">
                             </div>
                         @endif
 
@@ -39,7 +39,7 @@
                     <h5 class="card-title"> {{ $item->title }}</h5>
                     <p class="card-text" style="text-align: justify !important">
                         {{ \Illuminate\Support\Str::limit($item->content, 100) }}</p>
-
+                      
                     <div class="row">
                         <p class="card-text"><small class="text-muted">
                                 {{ $item->updated_at->format('D,M,Y') }}

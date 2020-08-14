@@ -14,6 +14,7 @@
             
 
             <p class="card-text">{{ $post->content }}</p>
+            @include('inline')
             <div class="pt-5 pb-3">
                 <span class="mx-2 h6">Get the latest news update in your inbox</span> <b>Subscribe Now</b>
                 <form class=" input-group-sm" method="POST" action="/subscribe">
