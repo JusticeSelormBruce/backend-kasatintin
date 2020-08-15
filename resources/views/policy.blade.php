@@ -1,7 +1,7 @@
 
 <!-- Button trigger modal -->
 <button type="button" class="btn text-light bg-dark  btn-sm" data-toggle="modal" data-target="#exampleModalLongp">
-    <span class="small mx-5">Policy</span>
+    <span class=" mx-5">Policy</span>
 </button>
 
 <!-- Modal -->
@@ -20,39 +20,61 @@
 
 
                   <p  style="text-align: justify !important">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero laborum consectetur vel, asperiores, nisi error eius
-                    voluptate, id odit sequi repellat consequatur quisquam nobis ratione doloremque odio temporibus. Repellendus, at
-                    incidunt nisi illo, iure laboriosam est officia debitis atque voluptatibus omnis nihil dolor exercitationem, vel rem
-                    commodi maiores saepe dicta a rerum! Nostrum itaque magnam dignissimos odio reiciendis, in culpa. Aspernatur animi
-                    dolorum molestiae, odio itaque culpa rem ad, quibusdam corporis ut neque quaerat quas saepe, facere autem. Sed aperiam
-                    nostrum distinctio veritatis! Quis mollitia pariatur, quos repudiandae rerum eius in aspernatur culpa nam aliquam
-                    voluptatem! Dolorum doloremque ipsam reiciendis veritatis aut! Dolore, rem. Nihil quisquam vero voluptates quas facilis
-                    consequatur qui pariatur perspiciatis error blanditiis doloribus cum, nostrum ullam! Distinctio voluptates quam
-                    architecto. Nesciunt esse autem aliquid. Quis corporis expedita laudantium quasi voluptatem hic rerum voluptatibus ipsam
-                    nam minima ut, nulla cumque rem ex. Ducimus accusamus mollitia quae? Autem a dolore at ratione suscipit facere, soluta
-                    adipisci blanditiis doloribus totam quia! Iste officiis non veritatis debitis dolore, deleniti suscipit pariatur amet
-                    aliquid aut. Veniam, autem! Ad dolor, sit quis, explicabo beatae, quo voluptatibus aliquid corrupti similique illo optio
-                    doloribus consequuntur earum quam aut! Quo accusantium nostrum nesciunt rerum delectus adipisci necessitatibus!
-                    Accusantium omnis veniam harum praesentium quia commodi impedit ratione in sint. Quas quis quod repellendus, numquam,
-                    aspernatur blanditiis quam architecto officiis cum nam eum voluptatem quibusdam eligendi velit sit reprehenderit officia
-                    facere obcaecati sequi. Ipsam excepturi labore itaque aperiam repudiandae perferendis numquam, veritatis voluptates
-                    tempore minus commodi quisquam ab cum harum esse! Harum explicabo voluptatibus non perferendis reprehenderit odit,
-                    nesciunt sapiente aut molestiae itaque neque velit? Amet incidunt nemo accusamus rerum eos enim. Animi praesentium
-                    numquam cum corrupti tempora enim incidunt doloremque architecto, iste exercitationem ut. Dolorem blanditiis quo
-                    doloribus, iste quia eaque, ratione aliquid aut dolor itaque exercitationem commodi beatae iusto ut sint officiis
-                    tenetur facere placeat totam reiciendis fugiat. Numquam cupiditate optio quo deleniti vero perspiciatis molestiae,
-                    dolores, impedit repudiandae dignissimos enim! Esse ab distinctio quisquam laboriosam, quia consequatur laborum culpa,
-                    corporis architecto perferendis nobis molestiae amet nisi repudiandae et delectus sint voluptate labore vitae? Aliquid
-                    fuga illum eaque est nulla corporis saepe tempora quam possimus, numquam reiciendis iure repudiandae asperiores cumque,
-                    eligendi distinctio soluta maiores voluptatibus expedita. Minima repellat cum quo culpa veniam quaerat distinctio
-                    excepturi, dolorum dolor harum ratione sunt, voluptate veritatis neque rerum laborum adipisci, vitae repellendus eaque
-                    id. Aut quod non eius maiores voluptatibus quis ipsam perferendis corporis omnis sit hic obcaecati ut minima natus
-                    praesentium consequatur nesciunt perspiciatis earum, asperiores harum id enim dolorum dolores. Rerum consectetur
-                    laudantium nam sunt distinctio commodi aut accusamus maxime deserunt nesciunt ad, minima minus eos ea reiciendis eaque!
-                    Mollitia vitae, distinctio possimus praesentium deserunt pariatur officiis. Placeat repellat eius sunt odit repudiandae,
-                    voluptatibus non eligendi libero unde sequi, aut deserunt itaque obcaecati veritatis modi. Natus minima libero veniam
-                    labore recusandae repellat pariatur, consequatur provident atque ut optio nesciunt itaque ipsam eos, suscipit aliquam
-                    ducimus, rem quisquam dicta aut beatae. Molestiae doloremque repellendus sed veniam fuga?
+                    Who we are
+                    Kasatintin.com is a 24 hour entertainment news website. Very gossipy, and will never stop.
+                    
+                    What personal data we collect and why we collect it
+                    Comments
+                    When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor’s IP address and browser user agent string to help spam detection.
+                    
+                    An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: https://automattic.com/privacy/. After approval of your comment, your profile picture is visible to the public in the context of your comment.
+                    
+                    
+                     
+                    Media
+                    If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website.
+                    
+                    Contact forms
+                    kasatintin.com@gmail.com
+                    
+                    Cookies
+                    If you leave a comment on our site you may opt-in to saving your name, email address and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.
+                    
+                    
+                     
+                    If you have an account and you log in to this site, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.
+                    
+                    When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select “Remember Me”, your login will persist for two weeks. If you log out of your account, the login cookies will be removed.
+                    
+                    If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.
+                    
+                    
+                     
+                    Embedded content from other websites
+                    Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.
+                    
+                    These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.
+                    
+                    Analytics
+                    This website has subscribed to Google Analytics.
+                    
+                    
+                     
+                    Who we share your data with
+                    Your are very safe when you browse on this website. Kasatintin.com will act professionally . Third party organisations like Google may monitor your activity online. However, your identity is protected in such instance. This allow Google to send you personalize adverts.
+                    
+                    Read more on: How Google uses information collected.
+                    
+                    How long we retain your data
+                    If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.
+                    
+                    For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.
+                    
+                    What rights you have over your data
+                    If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.
+                    
+                    Where we send your data
+                    Visitor comments may be checked through an automated spam detection service.
                   </p>
 
 

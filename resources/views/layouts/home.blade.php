@@ -73,7 +73,13 @@
             }
         }
 
-        @media(min-width:720px) {}
+        @media(min-width:720px) {
+            body,
+            html {
+                /* font-family: sans-serif; */
+                font-size: small !important;
+            }
+        }
 
     </style>
 </head>

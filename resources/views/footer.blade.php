@@ -32,7 +32,7 @@
           <div class="mx-auto ">
             @include('policy')
             <span class="mx-3"></span>
-            <span class="py-1 px-2 round">copyright: kasatintin({{  $year }})</span>
+            <span class="py-1 px-2 round">&copy; kasatintin({{  $year }})</span>
            <hr>
           </div>
       </div>
