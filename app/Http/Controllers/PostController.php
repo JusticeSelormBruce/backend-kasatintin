@@ -16,6 +16,7 @@ class PostController extends Controller
 {
   public function index()
   {
+    
     $categories = Category::all();
     $tags = Tag::all();
     $posts = Post::with(['author', 'category', 'images', 'videos', 'comments', 'tags'])->paginate(50);
@@ -35,6 +36,11 @@ class PostController extends Controller
     $this->storePostTag($post_id['id'], $request);
     $this->saveAttachment($request,$post_id['id']);
     return back()->with('msg', 'Post Added Successfully');
+  }
+  public function delete($id)
+  {
+    Post::whereId($id)->delete();
+    return back()->with('msg', 'Post Deleted Successfully');
   }
 
   public function validatePostDetails()

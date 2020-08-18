@@ -27,7 +27,7 @@ use function GuzzleHttp\Promise\all;
 
 
 Route::get('/', function () {
-    $new_post = Post::with(['images', 'videos'])->take(1)->get()->all();
+    $new_post = Post::with(['images', 'videos'])->orderByDesc('id')->take(1)->get()->all();
     return view('welcome', compact('new_post'));
 });
 Auth::routes(['verify' => true]);
@@ -77,6 +77,7 @@ Route::middleware(['auth', 'admin'])->group(
         Route::get('/category', 'CategoryController@index')->name('categories.index');
         Route::get('/category/{id}', 'CategoryController@show');
         Route::post('/category/store', 'CategoryController@store')->name('category.store');
+        Route::patch('/edit-category','CategoryController@edit');
 
         Route::get('/comment', 'CommentController@index')->name('comments.index');;
         Route::get('/comment/{id}', 'CommentController@show');
@@ -86,10 +87,12 @@ Route::middleware(['auth', 'admin'])->group(
         Route::get('/tag', 'TagController@index')->name('tags.index');;
         Route::get('/tag/{id}', 'TagController@show');
         Route::post('/tag/store', 'TagController@store')->name('tag.store');
+        Route::patch('/edit-tag','TagController@edit');
 
         Route::get('post-index', 'PostController@index')->name('posts.index');
         Route::post('post-store', 'PostController@store')->name('posts.store');
         Route::get('post/show/{id}', 'PostController@show')->name('post.show');
+        Route::get('delete-post/{id}','PostController@delete')->name('post.delete');
 
         Route::get('/users-index', 'UserController@index')->name('users.index');
         Route::get('polls-index', 'PollsController@index')->name('polls');

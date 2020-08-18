@@ -29,6 +29,13 @@ class CategoryController extends Controller
             ]
         );
         Category::create($data);
-        return back()->with('msg','Category Add Successfully');
+        return back()->with('msg', 'Category Add Successfully');
+    }
+
+    public function edit(Request $request)
+    {
+        $data = $request->except(['_token', '_method', 'id']);
+        Category::whereId($request->id)->update($data);
+        return back()->with('msg', 'Category Edited  Successfully');
     }
 }

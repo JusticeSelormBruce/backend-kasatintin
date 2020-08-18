@@ -39,13 +39,16 @@
 
                                     {{ \Illuminate\Support\Str::limit($item->content, 100) }}</p>
 
-                                <div class="card-footer">
                                     <div class="row">
                                         <span class="mx-2">post at</span>{{ $item->created_at->format('H:i') }}
-                                        <div class="ml-auto">
+                                        <div class="mx-auto">
                                             <a href="{{ route('post.show', ['id' => $item->id]) }}" class="text-primary">
                                                 <span>Read More</span></a>
                                         </div>
+                                    </div>
+                                <div class="card-footer">
+                                    <div class="row">
+                                       <div class="ml-auto mx-2">@include('model.post.delete')</div>
                                     </div>
 
                                 </div>

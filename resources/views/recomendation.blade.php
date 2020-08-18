@@ -13,12 +13,12 @@
                     @for ($i = 0; $i < sizeof($item->images); $i++)
                         @if ($i == 0)
                             <div class="carousel-item active">
-                                <img src="{{ $item->images[$i]->url }}"
+                                <img src="{{ Storage::url($item->images[$i]->url) }}"
                                     class="d-block w-100 img-carousel1 img-thumbnail" alt="attachment">
                             </div>
                         @else
                             <div class="carousel-item ">
-                                <img src="{{ $item->images[$i]->url }}"
+                                <img src="{{Storage::url($item->images[$i]->url)  }}"
                                     class="d-block w-100 img-carousel1 img-thumbnail" alt="attachment">
                             </div>
                         @endif

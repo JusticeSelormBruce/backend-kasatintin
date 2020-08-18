@@ -16,16 +16,17 @@
 
     </span>
    </div>
-    <div class="row">
+   @if ($new_post != null)
+        <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-12 pt-3 pl-2">
             <aside class="pt-4">
                 <div class="pl-2">
-                <h6 class="text-danger shadow-lg bg-dark" >   {{ \Illuminate\Support\Str::limit($new_post[0]->title, 100) }}</h6>
+                <h5 class="text-warning shadow-lg bg-dark" >   {{ \Illuminate\Support\Str::limit($new_post[0]->title, 100) }}</h5>
                 </div>
                 <hr>
                 <hr>
       <div class="pt-2 pl-2">
-        <p style="text-align: justify !important">      {{ \Illuminate\Support\Str::limit($new_post[0]->content, 500) }}</p>
+        <article style="text-align: justify !important" class="h5">      {{ \Illuminate\Support\Str::limit($new_post[0]->content, 500) }}</article>
       </div>
             </aside>
         </div>
@@ -36,11 +37,11 @@
                     @for ($i = 0; $i < sizeof($new_post[0]->images); $i++)
                         @if ($i == 0)
                             <div class="carousel-item active">
-                                <img src="{{ $new_post[0]->images[$i]->url }}" class="d-block w-100 img-carouse" alt="attachment">
+                                <img src="{{Storage::url( $new_post[0]->images[$i]->url) }}" class="d-block w-100 img-carouse" alt="attachment">
                             </div>
                         @else
                             <div class="carousel-item ">
-                                <img src="{{ $new_post[0]->images[$i]->url }}" class="d-block w-100 img-carouse " alt="attachment">
+                                <img src="{{Storage::url( $new_post[0]->images[$i]->url)}}" class="d-block w-100 img-carouse " alt="attachment">
                             </div>
                         @endif
 
@@ -59,4 +60,6 @@
           </a>
     </div>
 
+   @endif
+   
 </div>

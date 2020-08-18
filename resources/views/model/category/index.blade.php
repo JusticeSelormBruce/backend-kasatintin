@@ -26,6 +26,13 @@
 
                                     </div>
                                 </div>
+                                <div class="card-footer"> 
+                                   <div class="row">
+                                       <div class="ml-auto mx-2">
+                                          @include('model.category.edit')
+                                       </div>
+                                   </div>
+                                </div>
                             </div>
                         </div>
                     @endforeach

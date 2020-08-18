@@ -23,13 +23,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $faker = new Faker();
-        factory(User::class, 100)->create();
-        factory(Post::class, 1500)->create();
-        factory(Category::class, 6)->create();
-        factory(Tag::class,50)->create();
-        factory(Image::class,2500)->create();
-        factory(Video::class,500)->create();
-        factory(Comment::class,2500)->create();
+        // factory(User::class, 100)->create();
+        // factory(Post::class, 1500)->create();
+        // factory(Category::class, 6)->create();
+        // factory(Tag::class,50)->create();
+        // factory(Image::class,2500)->create();
+        // factory(Video::class,500)->create();
+        // factory(Comment::class,2500)->create();
         // DB::table('posts_tags')->insert(
         //     [
         //         'post_id' =>$faker->numberBetween(1,1500),
@@ -39,6 +39,6 @@ class DatabaseSeeder extends Seeder
         // );
 
 
-        // $this->call(UserSeeder::class);
+        $this->call(UserSeeder::class);
     }
 }

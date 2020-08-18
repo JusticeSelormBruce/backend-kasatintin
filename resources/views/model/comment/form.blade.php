@@ -10,7 +10,7 @@
         @csrf
         <div class="form-group py-0">
             <input type="hidden" name="id" value="{{$post->id}}">
-            <small>Comment here:</small>
+            <small class="text-warning">Comment here:</small>
             <textarea name="comment" required id="" rows="6" class="w-100 rounded"></textarea>
          <hr>
             <button class="btn btn-primary btn-sm" type="submit"><span class="mx-3">Post Comment</span></button>

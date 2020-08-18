@@ -30,4 +30,11 @@ class TagController extends Controller
         Tag::create($data);
         return back()->with('msg','Tag Add Successfully');
     }
+
+    public function edit(Request $request)
+    {
+        $data = $request->except(['_token', '_method', 'id']);
+        Tag::whereId($request->id)->update($data);
+        return back()->with('msg', 'Tag Edited  Successfully');
+    }
 }

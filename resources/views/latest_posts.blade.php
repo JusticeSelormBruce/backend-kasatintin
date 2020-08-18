@@ -10,13 +10,13 @@
                                     @for ($i = 0; $i < sizeof($item->images); $i++)
                                         @if ($i == 0)
                                             <div class="carousel-item active">
-                                                <img src="{{ $item->images[$i]->url }}"
-                                                    class="d-block w-100 img-carousel" alt="attachment">
+                                                <img src="{{ Storage::url($item->images[$i]->url) }}"
+                                                    class="d-block w-100 img-carousel " alt="attachment">
                                             </div>
                                         @else
                                             <div class="carousel-item ">
-                                                <img src="{{ $item->images[$i]->url }}"
-                                                    class="d-block w-100 img-carousel " alt="attachment">
+                                                <img src="{{  Storage::url($item->images[$i]->url) }}"
+                                                    class="d-block w-100 img-carousel h-25" alt="attachment">
                                             </div>
                                         @endif
 
@@ -88,19 +88,21 @@
                     </div>
                 </div>
             </form>
-            <div class="collapse" id="collapseExample">
-                <div class="card card-body bg-dark w-100">
-                    @foreach ($results->groupBy('choice') as $item)
-                        <hr>
-                        <span class="card-footer">
-                            <h5 class="mx-2"> {{ $item[0]['choice'] }}<span class="badge badge-primary mx-2">
-                                    {{ $item->count() }}</span></h5>
+          @if(!$results == null)
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body bg-dark w-100">
+                @foreach ($results->groupBy('choice') as $item)
+                    <hr>
+                    <span class="card-footer">
+                        <h5 class="mx-2"> {{ $item[0]['choice'] }}<span class="badge badge-primary mx-2">
+                                {{ $item->count() }}</span></h5>
 
 
-                        </span>
-                    @endforeach
-                </div>
+                    </span>
+                @endforeach
             </div>
+        </div>
+          @endif
         </div>
         <div class="pt-5"> @include('youtube')</div>
         <hr>
