@@ -37,11 +37,11 @@
                     @for ($i = 0; $i < sizeof($new_post[0]->images); $i++)
                         @if ($i == 0)
                             <div class="carousel-item active">
-                                <img src="{{Storage::url( $new_post[0]->images[$i]->url) }}" class="d-block w-100 img-carouse" alt="attachment">
+                                <img src="{{asset($new_post[0]->images[$i]->url)}}" class="d-block w-100 img-carouse" alt="attachment">
                             </div>
                         @else
                             <div class="carousel-item ">
-                                <img src="{{Storage::url( $new_post[0]->images[$i]->url)}}" class="d-block w-100 img-carouse " alt="attachment">
+                                <img src="{{asset( $new_post[0]->images[$i]->url)}}" class="d-block w-100 img-carouse " alt="attachment">
                             </div>
                         @endif
 

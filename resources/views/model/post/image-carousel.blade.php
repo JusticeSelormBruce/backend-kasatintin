@@ -2,7 +2,8 @@
 
 @media(min-width: 720px){
   .img-carousel{
-      height:50vh!important
+      height:50vh!important;
+      width:50vw!important;
   }
 
 }
@@ -13,11 +14,11 @@
         @for ($i = 0; $i < sizeof($post->images); $i++)
             @if ($i == 0)
                 <div class="carousel-item active">
-                    <img src="{{Storage::url( $post->images[$i]->url) }}" class="d-block w-100 img-carousel" alt="attachment">
+                    <img src="{{asset($post->images[$i]->url) }}" class="d-block w-100 img-carousel " alt="attachment">
                 </div>
             @else
                 <div class="carousel-item ">
-                    <img src="{{Storage::url( $post->images[$i]->url)}}" class="d-block w-100 img-carousel " alt="attachment">
+                    <img src="{{asset( $post->images[$i]->url) }}" class="d-block w-100 img-carousel " alt="attachment">
                 </div>
             @endif
 

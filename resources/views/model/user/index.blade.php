@@ -28,7 +28,6 @@
                         {{$item->first_name}} <span class="mr-1"></span> {{$item->last_name}}
                     </div>
                    <div class="card-footer">
-                    <p class="card-text"><a href="#" class="text-primary"><small class="mx-1">Read More</small></a></p>
                    </div>
                 </div>
             </div>

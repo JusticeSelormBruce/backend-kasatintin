@@ -18,7 +18,7 @@
                 <div class="jumbotron">
 
                     <div class="modal-body" style="font-size: small!important;">
-                        <div class="jumbotron py-3">
+                        <div class=" py-3">
                            <div class="row">
                                <div class="col-12">
                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">

@@ -53,7 +53,7 @@ class AppServiceProvider extends ServiceProvider
             if ($latest_post == null) {
                 $recomendation = null;
             } else {
-                if ( sizeof($latest_post)== 1) {
+                if (sizeof($latest_post) == 1) {
                     $recomendation = Post::all()->random(1);
                 } elseif (sizeof($latest_post) == 2) {
                     $recomendation = Post::all()->random(2);
@@ -61,8 +61,15 @@ class AppServiceProvider extends ServiceProvider
                     $recomendation = Post::all()->random(3);
                 }
             }
-
-            $view->with(compact('categories', 'latest_post', 'year', 'polls', 'results', 'subscribers', 'emails', 'recomendation'));
+            $inline = Post::with(['images', 'videos'])->get();
+            if ($inline != null) {
+                $inline = $inline->random(1);
+                $inline = $inline[0];
+            } else {
+                $inline = null;
+            }
+        
+            $view->with(compact('categories', 'latest_post', 'year', 'polls', 'results', 'subscribers', 'emails', 'recomendation', 'inline'));
         });
     }
 }

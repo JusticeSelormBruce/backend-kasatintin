@@ -10,12 +10,12 @@
                                     @for ($i = 0; $i < sizeof($item->images); $i++)
                                         @if ($i == 0)
                                             <div class="carousel-item active">
-                                                <img src="{{ Storage::url($item->images[$i]->url) }}"
+                                                <img src="{{asset($item->images[$i]->url) }}" 
                                                     class="d-block w-100 img-carousel " alt="attachment">
                                             </div>
                                         @else
                                             <div class="carousel-item ">
-                                                <img src="{{  Storage::url($item->images[$i]->url) }}"
+                                                <img src="{{asset( $item->images[$i]->url) }}" 
                                                     class="d-block w-100 img-carousel h-25" alt="attachment">
                                             </div>
                                         @endif
@@ -58,6 +58,7 @@
     <div class="col-lg-4 col-md-6 col-sm-12 ">
         <div class="jumbotron py-1  px-0 bg-secondary">
             @include('shared.alert')
+            @if ($polls != null)
             <form action="/vote" method="POST">
                 @csrf
                 <input type="hidden" value="{{ $polls['id'] }}" name="poll_id">
@@ -68,6 +69,7 @@
                     <p class="card-text h4">{{ $polls['description'] }}</p>
                     <hr>
                     <?php $options = explode(',', $polls['selection']); ?>
+                   
                     @foreach ($options as $item)
                         <div class="row ml-2">
                             <input type="radio" value="{{ $item }}" name="choice" required> <span
@@ -87,7 +89,9 @@
                             </span></div>
                     </div>
                 </div>
-            </form>
+            </form>  
+            @endif
+           
           @if(!$results == null)
           <div class="collapse" id="collapseExample">
             <div class="card card-body bg-dark w-100">

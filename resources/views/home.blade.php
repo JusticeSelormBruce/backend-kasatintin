@@ -100,9 +100,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Subscribers  <span class="badge badge-danger">{{$subscribers}}</span></h5>
                         </div>
-                        <div class="card-footer">Links:    <a class="text-primary"  disabled>
-                            {{ __('Subscribers') }}
-                        </a></div>
+                      
                     </div>
                 </div>
                 <div class="col-lg-6 col-sm-6 col-sm-12 py-2">
@@ -111,8 +109,7 @@
                             <h5 class="card-title">Emails  <span class="badge badge-danger">{{$emails->count()}}</span></h5>
                         
                         </div>
-                        <div class="card-footer"> Links:  <a class="text-primary" href="{{ route('tags.index') }}">
-                                Emails                        </a></div>
+                       
                     </div>
                 </div>
         
