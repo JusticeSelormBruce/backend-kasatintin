@@ -22,18 +22,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $faker = new Faker();
-        // factory(User::class, 100)->create();
-        // factory(Post::class, 1500)->create();
-        // factory(Category::class, 6)->create();
-        // factory(Tag::class,50)->create();
-        // factory(Image::class,2500)->create();
-        // factory(Video::class,500)->create();
-        // factory(Comment::class,2500)->create();
+        $faker = new Faker();
+        factory(User::class, 1)->create();
+        factory(Post::class, 5)->create();
+        factory(Category::class, 6)->create();
+        factory(Tag::class,5)->create();
+        factory(Image::class,10)->create();
+        factory(Video::class,10)->create();
+        factory(Comment::class,20)->create();
         // DB::table('posts_tags')->insert(
         //     [
-        //         'post_id' =>$faker->numberBetween(1,1500),
-        //         'tag_id' =>$faker->numberBetween(1,1500),
+        //         'post_id' =>$faker->numberBetween(1,5),
+        //         'tag_id' =>$faker->numberBetween(1,5),
 
         //     ]
         // );

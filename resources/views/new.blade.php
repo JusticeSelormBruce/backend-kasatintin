@@ -1,10 +1,10 @@
 <style>
 
     @media(min-width: 720px){
-        .img-carouse {
-            height: 50vh!important;
+        /* .img-carouse {
+            height: vh!important;
 
-        }
+        } */
 
     }
 

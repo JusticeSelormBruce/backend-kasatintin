@@ -27,6 +27,12 @@
             font-family:  'Alegreya', serif!important;
             word-spacing: 1px!important;
         }
+        /* *{
+      text-align: justify;
+    
+      font-size: 11pt!important;
+      font-family: 'Nanum Myeongjo', serif;
+  } */
         body,
         html {
             background-color: whitesmoke !important;
